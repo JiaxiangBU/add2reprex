@@ -19,4 +19,24 @@ knitr::opts_chunk$set(
 
 The goal of add2reprex is to ...
 
+## Installation
+
+You can install the released version of add2reprex from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("add2reprex")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("JiaxiangBU/add2reprex")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r,child="vignettes/intro.Rmd"}
+```
 `r add2pkg::add_disclaimer("Jiaxiang Li")`

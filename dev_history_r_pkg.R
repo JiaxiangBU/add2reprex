@@ -34,15 +34,17 @@ if (file.exists("README.Rmd")) {
     file.edit("README-bak.Rmd")
 }
 use_readme_rmd()
-read_lines("README.Rmd")[1:20] %>%
-    c("") %>%
-    c('`r add2pkg::add_disclaimer("Jiaxiang Li")`') %>%
+use_vignette("intro")
+read_lines("README.Rmd")[1:39] %>%
+    c(., '```{r,child="vignettes/intro.Rmd"}') %>%
+    c(., '```') %>%
+    c(., '`r add2pkg::add_disclaimer("Jiaxiang Li")`') %>%
     write_lines("README.Rmd")
 file.remove("README-bak.Rmd")
-file.edit("README.Rmd")
 rmarkdown::render("README.Rmd")
 rstudioapi::viewer("README.html")
 file.remove("README.html")
+file.edit("README.Rmd")
 
 # add commit --------------------------------------------------------------
 
@@ -54,9 +56,9 @@ glue::glue("Add metadata
 1. namespace
 1. desc
 1. coc
+1. vignette
 1. `%>%`
 ") %>% git2r::commit(message = .)
-
 
 
 git2r::remote_add(name = "origin",
