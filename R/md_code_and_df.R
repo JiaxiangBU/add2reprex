@@ -1,3 +1,4 @@
+globalVariables('.')
 #' Return the code and data frame output in markdown format
 #'
 #' @import clipr
